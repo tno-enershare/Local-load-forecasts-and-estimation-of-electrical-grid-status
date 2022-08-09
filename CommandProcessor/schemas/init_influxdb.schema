@@ -1,0 +1,75 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "init_influxdb",
+  "required": [
+    "cmd",
+    "params"
+  ],
+  "properties": {
+    "cmd": {
+      "$id": "#/properties/cmd",
+      "type": "string",
+      "title": "The Cmd Schema",
+      "default": "",
+      "examples": [
+        "init_influxdb"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "params": {
+      "$id": "#/properties/params",
+      "type": "object",
+      "title": "The Params Schema",
+      "required": [
+        "host",
+        "port",
+        "database_name",
+        "measurement_name"
+      ],
+      "properties": {
+        "host": {
+          "$id": "#/properties/params/properties/host",
+          "type": "string",
+          "title": "The Host Schema",
+          "default": "",
+          "examples": [
+            "hostname"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "port": {
+          "$id": "#/properties/params/properties/port",
+          "type": "integer",
+          "title": "The Port Schema",
+          "default": 0,
+          "examples": [
+            8086
+          ]
+        },
+        "database_name": {
+          "$id": "#/properties/params/properties/database_name",
+          "type": "string",
+          "title": "The Database_name Schema",
+          "default": "",
+          "examples": [
+            "dbName"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "measurement_name": {
+          "$id": "#/properties/params/properties/measurement_name",
+          "type": "string",
+          "title": "The Measurement_name Schema",
+          "default": "",
+          "examples": [
+            "measurementName"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}

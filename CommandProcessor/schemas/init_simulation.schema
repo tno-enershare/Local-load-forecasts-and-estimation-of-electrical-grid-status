@@ -1,0 +1,66 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "init_simulation",
+  "required": [
+    "cmd",
+    "params"
+  ],
+  "properties": {
+    "cmd": {
+      "$id": "#/properties/cmd",
+      "type": "string",
+      "title": "The Cmd Schema",
+      "default": "",
+      "examples": [
+        "init_simulation"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "params": {
+      "$id": "#/properties/params",
+      "type": "object",
+      "title": "The Params Schema",
+      "required": [
+        "main_resource",
+        "supporting_resources",
+        "simulation_time"
+      ],
+      "properties": {
+        "main_resource": {
+          "$id": "#/properties/params/properties/main_resource",
+          "type": "object",
+          "title": "The Main_resource Schema",
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "properties": {
+            "filename": {
+              "$id": "#/properties/params/properties/main_resource/properties/filename",
+              "type": "string",
+              "title": "The Filename Schema",
+              "default": "",
+              "examples": [
+                "main.dss"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "contents": {
+              "$id": "#/properties/params/properties/main_resource/properties/contents",
+              "type": "string",
+              "title": "The Contents Schema",
+              "default": "",
+              "examples": [
+                "<URL encoded contents>"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        }
+      }
+    }
+  }
+}

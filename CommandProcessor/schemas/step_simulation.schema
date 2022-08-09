@@ -1,0 +1,42 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "step_simulation",
+  "required": [
+    "cmd",
+    "params"
+  ],
+  "properties": {
+    "cmd": {
+      "$id": "#/properties/cmd",
+      "type": "string",
+      "title": "The Cmd Schema",
+      "default": "",
+      "examples": [
+        "step_simulation"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "params": {
+      "$id": "#/properties/params",
+      "type": "object",
+      "title": "The Params Schema",
+      "required": [
+        "time_step"
+      ],
+      "properties": {
+        "time_step": {
+          "$id": "#/properties/params/properties/time_step",
+          "type": "number",
+          "title": "The Time_step Schema",
+          "default": 0.0,
+          "examples": [
+            123456.78
+          ]
+        }
+      }
+    }
+  }
+}

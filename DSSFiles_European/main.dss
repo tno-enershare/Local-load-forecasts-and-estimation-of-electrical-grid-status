@@ -1,0 +1,38 @@
+// -------------------------------------------------------------------------------//
+// IEEE European LV Test Feeder
+// by Pedro Pablo Vergara, Ph.D
+// Eindhoven University of Technology, The Netherlands
+// June of 2019
+// -------------------------------------------------------------------------------//
+
+Clear
+Set DefaultBaseFrequency=50
+
+! Swing Bar // Data from the file Source.csv from the IEEE European Test Feeder
+New object=circuit.ieee_europe basekv= 11 pu=1.05 isc3=3000 isc1=5
+
+! Substation Transformer
+New Transformer.TR1 Phases=3 Windings=2 Xhl=4 %r=0.4
+~ wdg=1 bus=sourcebus conn=delta kv=11   kva=800   
+~ wdg=2 bus=1         conn=wye kv=0.416  kva=800   
+
+! LineCodes 
+Redirect  EuropeanTestLineCodes.dss
+
+! Lines 
+Redirect EuropeanTestLines.dss
+
+! Loads
+Redirect EuropeanTestLoads.dss
+
+!PV Generators
+Redirect EuropeanTestGenerators.dss
+
+! EnergyMeter
+New energymeter.Meter element=Transformer.TR1 terminal=1
+
+! Initial Configurations
+Set VoltageBases = [11, 0.416]
+CalcVoltageBases
+! BusCoords IEEE_European_BusXY.csv
+

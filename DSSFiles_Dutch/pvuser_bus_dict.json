@@ -1,0 +1,350 @@
+{
+	"pvuser1": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus301Phase1In"
+	},
+	"pvuser2": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus701Phase2In"
+	},
+	"pvuser3": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus801Phase3In"
+	},
+	"pvuser4": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus1301Phase2In"
+	},
+	"pvuser5": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus1401Phase1In"
+	},
+	"pvuser6": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus1501Phase3In"
+	},
+	"pvuser7": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus1701Phase2In"
+	},
+	"pvuser8": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus1801Phase1In"
+	},
+	"pvuser9": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus1901Phase1In"
+	},
+	"pvuser10": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus2001Phase3In"
+	},
+	"pvuser11": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus2101Phase2In"
+	},
+	"pvuser12": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus2201Phase2In"
+	},
+	"pvuser13": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus2301Phase1In"
+	},
+	"pvuser14": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus2401Phase1In"
+	},
+	"pvuser15": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus2501Phase3In"
+	},
+	"pvuser16": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus2601Phase3In"
+	},
+	"pvuser17": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus2701Phase2In"
+	},
+	"pvuser18": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus2801Phase3In"
+	},
+	"pvuser19": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus2901Phase2In"
+	},
+	"pvuser20": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus3001Phase2In"
+	},
+	"pvuser21": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus3101Phase3In"
+	},
+	"pvuser22": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus3201Phase1In"
+	},
+	"pvuser23": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus3301Phase3In"
+	},
+	"pvuser24": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus3401Phase3In"
+	},
+	"pvuser25": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus3501Phase3In"
+	},
+	"pvuser26": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus3601Phase1In"
+	},
+	"pvuser27": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus3701Phase1In"
+	},
+	"pvuser28": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus3801Phase1In"
+	},
+	"pvuser29": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus3901Phase1In"
+	},
+	"pvuser30": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus4001Phase1In"
+	},
+	"pvuser31": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus4101Phase2In"
+	},
+	"pvuser32": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus4201Phase3In"
+	},
+	"pvuser33": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus4301Phase2In"
+	},
+	"pvuser34": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus4401Phase3In"
+	},
+	"pvuser35": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus4501Phase2In"
+	},
+	"pvuser36": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus4601Phase1In"
+	},
+	"pvuser37": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus4701Phase2In"
+	},
+	"pvuser38": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus4801Phase2In"
+	},
+	"pvuser39": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus4901Phase1In"
+	},
+	"pvuser40": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus5001Phase3In"
+	},
+	"pvuser41": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus5101Phase2In"
+	},
+	"pvuser42": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus5201Phase1In"
+	},
+	"pvuser43": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus5301Phase2In"
+	},
+	"pvuser44": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus5401Phase1In"
+	},
+	"pvuser45": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus5501Phase2In"
+	},
+	"pvuser46": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus5601Phase2In"
+	},
+	"pvuser47": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus5701Phase2In"
+	},
+	"pvuser48": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus5801Phase3In"
+	},
+	"pvuser49": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus5901Phase3In"
+	},
+	"pvuser50": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus6001Phase2In"
+	},
+	"pvuser51": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus6101Phase3In"
+	},
+	"pvuser52": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus6201Phase1In"
+	},
+	"pvuser53": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus6301Phase2In"
+	},
+	"pvuser54": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus6401Phase3In"
+	},
+	"pvuser55": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus6501Phase1In"
+	},
+	"pvuser56": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus6601Phase3In"
+	},
+	"pvuser57": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus6701Phase3In"
+	},
+	"pvuser58": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus6801Phase3In"
+	},
+	"pvuser59": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus6901Phase2In"
+	},
+	"pvuser60": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus7001Phase3In"
+	},
+	"pvuser61": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus7101Phase2In"
+	},
+	"pvuser62": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus7201Phase1In"
+	},
+	"pvuser63": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus7301Phase2In"
+	},
+	"pvuser64": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus7401Phase1In"
+	},
+	"pvuser65": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus7501Phase3In"
+	},
+	"pvuser66": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus7601Phase1In"
+	},
+	"pvuser67": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus7701Phase2In"
+	},
+	"pvuser68": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus7801Phase2In"
+	},
+	"pvuser69": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus7901Phase1In"
+	},
+	"pvuser70": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus8001Phase2In"
+	},
+	"pvuser71": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus8101Phase1In"
+	},
+	"pvuser72": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus8201Phase3In"
+	},
+	"pvuser73": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus8301Phase3In"
+	},
+	"pvuser74": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus8401Phase3In"
+	},
+	"pvuser75": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus8501Phase1In"
+	},
+	"pvuser76": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus8601Phase3In"
+	},
+	"pvuser77": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus8701Phase1In"
+	},
+	"pvuser78": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus8801Phase3In"
+	},
+	"pvuser79": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus8901Phase1In"
+	},
+	"pvuser80": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus9001Phase2In"
+	},
+	"pvuser81": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus9101Phase1In"
+	},
+	"pvuser82": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus9201Phase1In"
+	},
+	"pvuser83": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus9301Phase3In"
+	},
+	"pvuser84": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus9401Phase2In"
+	},
+	"pvuser85": {
+		"Phase": "Phase2Out",
+		"Bus": "Bus9501Phase2In"
+	},
+	"pvuser86": {
+		"Phase": "Phase1Out",
+		"Bus": "Bus9601Phase1In"
+	},
+	"pvuser87": {
+		"Phase": "Phase3Out",
+		"Bus": "Bus9701Phase3In"
+	}
+}

@@ -1,0 +1,68 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "set_kw_gen",
+  "required": [
+    "cmd",
+    "params"
+  ],
+  "properties": {
+    "cmd": {
+      "$id": "#/properties/cmd",
+      "type": "string",
+      "title": "The Cmd Schema",
+      "default": "",
+      "examples": [
+        "set_kw_gen"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "params": {
+      "$id": "#/properties/params",
+      "type": "object",
+      "title": "The Params Schema",
+      "required": [
+        "gens"
+      ],
+      "properties": {
+        "gens": {
+          "$id": "#/properties/params/properties/gens",
+          "type": "array",
+          "title": "The Gens Schema",
+          "items": {
+            "$id": "#/properties/params/properties/gens/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "gen_name",
+              "gen_in_kW"
+            ],
+            "properties": {
+              "gen_name": {
+                "$id": "#/properties/params/properties/gens/items/properties/gen_name",
+                "type": "string",
+                "title": "The Gen_name Schema",
+                "default": "",
+                "examples": [
+                  "name_of_gen"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "gen_in_kW": {
+                "$id": "#/properties/params/properties/gens/items/properties/gen_in_kW",
+                "type": "number",
+                "title": "The Gen_in_kw Schema",
+                "default": 0.0,
+                "examples": [
+                  123.45
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
