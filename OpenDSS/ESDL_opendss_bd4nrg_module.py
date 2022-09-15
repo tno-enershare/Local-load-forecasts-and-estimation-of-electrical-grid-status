@@ -435,15 +435,17 @@ class DSS:
 
         counter = counter + 1
 
+        print('Solving power flow. Time-step: ' + str(time_stamp))
+        print('Calculating the state of the grid. Time-step: ' + str(time_stamp))
         # Solve the power flow
         self.solve_DSS_snapshot()
 
-        # Check if the power flow converged
-        if self.circuit_converged() == 1:
-            print('Circuit Converged. Time-step: ' + str(time_stamp))
-        else:
-            # Return error!!!
-            print('Circuit NOT Converged. Time-step: ' + str(time_stamp))
+        # # Check if the power flow converged
+        # if self.circuit_converged() == 1:
+        #     print('Circuit Converged. Time-step: ' + str(time_stamp))
+        # else:
+        #     # Return error!!!
+        #     print('Circuit NOT Converged. Time-step: ' + str(time_stamp))
 
         dp_pv = []
         # Read the voltage of all the Users
@@ -541,7 +543,7 @@ class DSS:
         [self.datapoints.append(d) for d in dp_plines]
         [self.datapoints.append(d) for d in dp_pv]
 
-        print('Sending to DSO...')
+        print('Sending to DSO Agent...')
         # self.send_to_dso(dp_pv)
         self.send_to_dso(self.datapoints)
 

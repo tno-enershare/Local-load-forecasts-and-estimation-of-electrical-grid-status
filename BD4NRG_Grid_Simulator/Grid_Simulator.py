@@ -73,7 +73,7 @@ class GridSimulator:
 
         counter = 0
         while time_stamp < sim_end:
-            print('Timestep: ' + str(dt.fromtimestamp(time_stamp)))
+            #print('Timestep: ' + str(dt.fromtimestamp(time_stamp)))
 
             # Update the kW of Consumers
             self.set_kw_load(counter)

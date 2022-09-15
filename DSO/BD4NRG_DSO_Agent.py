@@ -9,7 +9,8 @@ VOLTAGE_THRESHOLD_MAX = 1.1
 # AGGREGATOR_CONTROL_SUBJECT = 'aggregator.control'
 # NATS_HOST = 'localhost'
 # NATS_PORT = 4222
-OVERLOAD_THRESHOLD = 1.0
+# OVERLOAD_THRESHOLD = 1.0
+OVERLOAD_THRESHOLD = 1.5
 # RATED_CAPACITY_TRANSFORMER = 15.0
 # TODO:Selma-> For testing purposes only
 RATED_CAPACITY_TRANSFORMER = 1.0
@@ -99,6 +100,8 @@ class DSOAgent:
         # self.np.publish(AGGREGATOR_CONTROL_SUBJECT, json.dumps(message).encode('utf-8'))
         if transformer_overloaded:
             print('Transformer is overloaded')
+        else:
+            print('Transformer is not overloaded')
         self.dfs = {}
 
     def end_simulation(self):
