@@ -22,6 +22,17 @@ class DSOAgent:
         # self.np = NATSPublisherClient(NATS_HOST, NATS_PORT)
         self.lock = threading.Lock()
 
+        # Dataframe to write the results to CSV
+        self.transformer_loads = pd.DataFrame()
+        # self.transformer_loads["timestamp"] = pd.Series()
+        # self.transformer_loads["transformer_load"] = pd.Series()
+        # self.transformer_loads["transformer_overloaded"] = pd.Series()
+        # self.transformer_loads["overload_threshold"] = pd.Series()
+        self.timestamp = []
+        self.transformer_load = []
+        self.transformer_overloaded = []
+        self.overload_threshold = []
+
     def process_command(self, command):
         self.process_message(command)
 
@@ -97,6 +108,11 @@ class DSOAgent:
                 message[user_id] = True
                 transformer_overloaded = True
 
+            self.timestamp.append(str(t))
+            self.transformer_load.append(str(transformer_load))
+            self.transformer_overloaded.append(str(transformer_overloaded))
+            self.overload_threshold.append(str(OVERLOAD_THRESHOLD))
+
         # self.np.publish(AGGREGATOR_CONTROL_SUBJECT, json.dumps(message).encode('utf-8'))
         if transformer_overloaded:
             print('Transformer is overloaded')
@@ -107,6 +123,14 @@ class DSOAgent:
     def end_simulation(self):
         print('DSO: End of Simulation. Writing CSVs')
 
+        self.transformer_loads["timestamp"] = self.timestamp
+        self.transformer_loads["transformer_load"] = self.transformer_load
+        self.transformer_loads["transformer_overloaded"] = self.transformer_overloaded
+        self.transformer_loads["overload_threshold"] = self.overload_threshold
+
+        self.transformer_loads.to_csv('transformer_overloads.csv',
+                                      index=False,
+                                      sep=';')
         # if self.load_dfs:
         #     for id, df in self.load_dfs.items():
         #         df.to_csv(r'C:\Users\subramaniana\Projects\SEM\opendss-module\tmp\csv\load\{}.csv'.format(id), index=True)
