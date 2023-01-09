@@ -126,6 +126,9 @@ class GridSimulator:
         # Reads the power at consumer nodes predicted by Federated Learning
         # fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads.csv',
         #                                 sep=',', dtype=np.float64)
-        fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_10Households_24h.csv',
+        fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_10Households_24h_LocalModelOutput.csv',
                                         sep=',', dtype=np.float64)
+
+        # fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_10Households_24h.csv',
+        #                                 sep=',', dtype=np.float64)
         return fl_consumer_loads

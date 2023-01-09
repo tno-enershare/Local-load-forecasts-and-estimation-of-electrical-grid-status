@@ -280,7 +280,7 @@
         <port xsi:type="esdl:InPort" name="Bus9601Phase1In" id="Bus9601Phase1In" connectedTo="line181Phase1Out" carrier="Electricity"/>
         <port xsi:type="esdl:OutPort" name="Bus9601Phase1Out" id="Bus9601Phase1Out" connectedTo="EConnInuser86Phase1Inuser86Phase1In" carrier="Electricity"/>
       </asset>
-      <asset xsi:type="esdl:Transformer" capacity="800.0" id="transformer1" name="transformer1">
+      <asset xsi:type="esdl:Transformer" capacity="800000.0" id="transformer1" name="transformer1">
         <port xsi:type="esdl:InPort" name="transformer1In" id="transformer1In" connectedTo="BussourcebusOut" carrier="Electricity"/>
         <port xsi:type="esdl:OutPort" name="transformer1Out" id="transformer1Out" connectedTo="Bus1Phase1In" carrier="Electricity"/>
         <geometry xsi:type="esdl:Point" lat="52.04256757283102" lon="6.605487406286557"/>
