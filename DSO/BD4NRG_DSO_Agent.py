@@ -1,3 +1,4 @@
+from datetime import datetime
 import json
 import threading
 import pandas as pd
@@ -128,7 +129,8 @@ class DSOAgent:
         self.transformer_loads["transformer_overloaded"] = self.transformer_overloaded
         self.transformer_loads["overload_threshold"] = self.overload_threshold
 
-        self.transformer_loads.to_csv('transformer_overloads.csv',
+        filename = 'transformer_overloads.csv'
+        self.transformer_loads.to_csv(filename,
                                       index=False,
                                       sep=';')
         # if self.load_dfs:

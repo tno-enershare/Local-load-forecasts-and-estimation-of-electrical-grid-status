@@ -25,8 +25,11 @@ class GridSimulator:
         # with(open('../ESDL_Files_GridSimulator/ExampleEnergySystem_URL_Encoded.esdl', 'r')) as f:
         #     main_resource['contents'] = quote(f.read())
         # main_resource_filename = 'ExampleEnergySystem_URL_Encoded.esdl'
-        main_resource_filename = 'Dutch_Neighbourhood_10Households.esdl'
-        with(open('../ESDL_Files_GridSimulator/Dutch_Neighbourhood_10Households.esdl', 'r')) as f:
+        #main_resource_filename = 'Dutch_Neighbourhood_10Households.esdl'
+        main_resource_filename = 'Dutch_Neighbourhood_2Households.esdl'
+        # with(open('../ESDL_Files_GridSimulator/Dutch_Neighbourhood_10Households.esdl', 'r')) as f:
+        #     main_resource_contents = quote(f.read())
+        with(open('../ESDL_Files_GridSimulator/Dutch_Neighbourhood_2Households.esdl', 'r')) as f:
             main_resource_contents = quote(f.read())
         # print(main_resource['contents'])
 
@@ -126,9 +129,10 @@ class GridSimulator:
         # Reads the power at consumer nodes predicted by Federated Learning
         # fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads.csv',
         #                                 sep=',', dtype=np.float64)
-        fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_10Households_24h_LocalModelOutput.csv',
+        # fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_2Households_24h_LocalModelOutput.csv',
+        #                                 sep=',', dtype=np.float64)
+        fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_2Households_24h_LocalModelOutput.csv',
                                         sep=',', dtype=np.float64)
-
         # fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_10Households_24h.csv',
         #                                 sep=',', dtype=np.float64)
         return fl_consumer_loads

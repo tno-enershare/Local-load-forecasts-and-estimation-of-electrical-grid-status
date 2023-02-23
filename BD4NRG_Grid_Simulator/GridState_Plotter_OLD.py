@@ -10,9 +10,7 @@ import datetime
 
 import matplotlib.dates as mdates
 
-
 if __name__ == "__main__":
-
     df2 = pd.read_csv("transformer_overloads_2_households.csv", sep=';', decimal='.')
 
     df3 = pd.read_csv("transformer_overloads_2_households.csv", sep=';', decimal='.', dtype=str)
@@ -23,11 +21,11 @@ if __name__ == "__main__":
 
     df2 = df2.set_index(['transformer_overloaded'])
 
-    df2
+    #df2
 
     fig, ax1 = plt.subplots()
 
-    ax1.plot(df2['timestamp'].loc['True'], df2['transformer_load'].loc['True'], 'ro')
+    #ax1.plot(df2['timestamp'].loc['True'], df2['transformer_load'].loc['True'], 'ro')
 
     ax1.plot(df2['timestamp'], df2['transformer_load'], 'k')
 
@@ -39,9 +37,8 @@ if __name__ == "__main__":
 
     fig.autofmt_xdate()
 
-    plt.xlabel('Time')
+    plt.xlabel('Time [h]')
 
     plt.ylabel('Transformer load [kW]')
 
-    # plt.savefig('Transformer_load_10_households.png', dpi=500, bbox_inches='tight')
-    plt.savefig('Transformer_load_2_households.png', dpi=500, bbox_inches='tight')
+    plt.savefig('../Federated_Learning_Forecasts/Transformer_load_2_households.png', dpi=500, bbox_inches='tight')
