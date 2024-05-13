@@ -1,18 +1,19 @@
+import os
+
 import pandas as pd
 import numpy as np
 from datetime import datetime as dt
 from datetime import timedelta as td
-import os
 from urllib.parse import quote, unquote
 from OpenDSS.ESDL_opendss_bd4nrg_module import DSS
 
 
 class GridSimulator:
-    # tmp_path = os.path.abspath("Grid_Simulator_ESDL_Temp/")
-    tmp_path = "../Grid_Simulator_ESDL_Temp/"
 
-    def __init__(self):
-        self.fl_consumer_loads = self.read_fl_load_forecasts()
+    def __init__(self, esdl_file, load_forecasts, pv_forecasts):
+        self.tmp_path = esdl_file
+        self.fl_consumer_loads = self.read_fl_load_forecasts(load_forecasts)
+        self.pv_generation = self.read_pv_gens(pv_forecasts)
 
     def simulate(self):
         print('Initializing grid simulation parameters...')
@@ -21,20 +22,13 @@ class GridSimulator:
         self.init_influxdb()
 
     def init_simulation(self):
-        # main_resource = {'filename': 'ExampleEnergySystem_URL_Encoded.esdl'}
-        # with(open('../ESDL_Files_GridSimulator/ExampleEnergySystem_URL_Encoded.esdl', 'r')) as f:
-        #     main_resource['contents'] = quote(f.read())
-        # main_resource_filename = 'ExampleEnergySystem_URL_Encoded.esdl'
-        #main_resource_filename = 'Dutch_Neighbourhood_10Households.esdl'
-        main_resource_filename = 'Dutch_Neighbourhood_2Households.esdl'
-        # with(open('../ESDL_Files_GridSimulator/Dutch_Neighbourhood_10Households.esdl', 'r')) as f:
-        #     main_resource_contents = quote(f.read())
-        with(open('../ESDL_Files_GridSimulator/Dutch_Neighbourhood_2Households.esdl', 'r')) as f:
-            main_resource_contents = quote(f.read())
-        # print(main_resource['contents'])
+        # main_resource_filename = 'Dutch_Neighbourhood_10Households_1PV.esdl'
 
-        # Write main res into file
-        # main_resource_file_name = os.path.join(self.tmp_path, main_resource['filename'])
+        main_resource_filename = 'Slovenian_Pilot_2024_v1.esdl'
+
+        with(open('../ESDL_Files_GridSimulator/Pilots_2024/Slovenian_Pilot_2024_v1.esdl', 'r')) as f:
+            main_resource_contents = quote(f.read())
+
         main_resource_file_name = self.tmp_path + main_resource_filename
 
         print(f'Writing to {main_resource_file_name}')
@@ -42,13 +36,7 @@ class GridSimulator:
             os.remove(main_resource_file_name)
         with open(main_resource_file_name, 'w+') as f:
             f.write(unquote(main_resource_contents).replace("+", " "))
-        # if os.path.exists(main_resource_file_name):
-        #     os.remove(main_resource_file_name)
-        # with open(main_resource_file_name, 'w+') as f:
-        #     f.write(unquote(main_resource['contents']).replace("+", " "))
 
-        # Create dss object with main ESDL resource
-        # dss = DSS(os.path.join(self.tmp_path, main_resource['filename']))
         main_resource_file_name_absolute_path = os.path.abspath(main_resource_file_name)
         self.dss = DSS(path_esdl=main_resource_file_name_absolute_path)
         # Initialise Simulation with times
@@ -58,7 +46,8 @@ class GridSimulator:
         host = 'localhost'
         port = 8086
         database_name = 'opendss_db'
-        measurement_name = 'dutch_sim_run_10_02_2020_1'
+        # measurement_name = 'dutch_sim_run_10_02_2020_1'
+        measurement_name = 'slovenian_sim_run_01012021'
 
         if self.dss is None:
             print('Cannot process init_influxdb now as DSS is not initialised!')
@@ -66,20 +55,17 @@ class GridSimulator:
             self.dss.init_influxdb(host, port, database_name, measurement_name)
 
     def start_simulation(self):
-        sim_start = dt.strptime('Jan 1 2017  12:00AM', '%b %d %Y %I:%M%p').timestamp()
-        # sim_end = sim_start + td(days=1).total_seconds()
-        #TODO: Selma-> Change back to 365
-        #sim_end = sim_start + td(days=365).total_seconds()
+        sim_start = dt.strptime('Jan 1 2021  12:15AM', '%b %d %Y %I:%M%p').timestamp()
+
         sim_end = sim_start + td(days=1).total_seconds()
         time_step = td(minutes=15).total_seconds()
         time_stamp = sim_start
 
         counter = 0
         while time_stamp < sim_end:
-            #print('Timestep: ' + str(dt.fromtimestamp(time_stamp)))
-
             # Update the kW of Consumers
             self.set_kw_load(counter)
+            self.set_kw_gen(counter)
             # self.set_kvar_load(counter)
 
             counter = counter + 1
@@ -99,7 +85,6 @@ class GridSimulator:
             print('Cannot process step_simulation now as DSS is not initialised!')
         else:
             self.dss.end_simulation()
-            # self.client.stop()
 
     def set_kw_load(self, counter):
         consumer_loads = []
@@ -121,18 +106,39 @@ class GridSimulator:
                     # self.dss.set_kw_load(load['load_name'], round(load['load_in_kW'], 1))
                     self.dss.set_kw_load(load['load_name'], load['load_in_kW'])
 
+    def set_kw_gen(self, counter):
+        pv_gens = []
+
+        for g in self.pv_generation.columns:
+            pv_gens.append({
+                'gen_name': g,
+                'gen_in_kW': self.pv_generation[g][counter]
+            })
+
+        if self.dss is None:
+            print('Cannot process set_kw_Gen now as DSS is not initialised!')
+        else:
+            for pv_gen in pv_gens:
+                if 'battery' in pv_gen['gen_name']:
+                    # self.dss.set_storage_charge(load['load_name'], round(load['load_in_kW'], 1))
+                    self.dss.set_storage_discharge(pv_gen['gen_name'], pv_gen['gen_in_kW'])
+                else:
+                    # self.dss.set_kw_load(load['load_name'], round(load['load_in_kW'], 1))
+                    self.dss.set_kw_Gen(pv_gen['gen_name'], pv_gen['gen_in_kW'])
+
     def set_kvar_load(self, counter):
         # TODO: Implement if FL outputs reactive power as well
         return
 
-    def read_fl_load_forecasts(self):
+    def read_fl_load_forecasts(self, load_forecasts):
         # Reads the power at consumer nodes predicted by Federated Learning
-        # fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads.csv',
-        #                                 sep=',', dtype=np.float64)
-        # fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_2Households_24h_LocalModelOutput.csv',
-        #                                 sep=',', dtype=np.float64)
-        fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_2Households_24h_LocalModelOutput.csv',
+        fl_consumer_loads = pd.read_csv(load_forecasts,
                                         sep=',', dtype=np.float64)
-        # fl_consumer_loads = pd.read_csv('../Federated_Learning_Forecasts/FL_Consumer_Loads_10Households_24h.csv',
-        #                                 sep=',', dtype=np.float64)
+
         return fl_consumer_loads
+
+    def read_pv_gens(self, pv_forecasts):
+        pv_generation = pd.read_csv(pv_forecasts,
+                                    sep=',', dtype=np.float64)
+
+        return pv_generation

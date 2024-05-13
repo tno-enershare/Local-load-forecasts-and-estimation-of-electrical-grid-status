@@ -1,4 +1,0 @@
-New  LineCode.GPLKh_4_50_Cusvm_4_6 		nphases=3	r1=0.3870	x1=0.0720	r0=1.3000	x0=0.1900	c1=0.6100	c0=0.3700	Units=km
-New  LineCode.GPLKh_4_25_Curm_4_2p5 	nphases=3	r1=0.7260	x1=0.0760	r0=2.3800	x0=0.2100	c1=0.4700	c0=0.2800	Units=km
-New  LineCode.GPLKh_4_6_Curm_4_2p5 		nphases=3	r1=3.0610	x1=0.1000	r0=7.8200	x0=0.1800	c1=0.2000	c0=0.1200	Units=km
-New  LineCode.GPLKh_4_10_Curm_4_2p5 	nphases=3	r1=1.8370	x1=0.0880	r0=5.2200	x0=0.1900	c1=0.2770	c0=0.1700	Units=km

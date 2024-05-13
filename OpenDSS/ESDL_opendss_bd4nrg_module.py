@@ -132,25 +132,6 @@ class DSS:
             command = 'New  Load.' + a.name + ' Bus1=' + bus + '.' + phase + ' Phases=1 Conn=wye Model=1 kV=0.230 kW=100 PF=1.0 Vmaxpu=1.5 Vminpu=0.60'
             self.command_DSS(command)
 
-            # # Create the Base Load objects
-            # if isinstance(a, esdl.HeatPump):
-            #     for port in a.port:
-            #         if isinstance(port, esdl.InPort):
-            #             busUser = port.connectedTo[0].energyasset
-            #             portName = port.name
-            #     bus = busUser.name.split('Bus')[1]
-            #     r = re.match('.*Phase(\d+)In', portName)
-            #     if r is not None:
-            #         phase = r.groups()[0]
-            #     else:
-            #         phase = '1'
-            #     # print(a.name + ' is connected to phase ' + phase)
-            # kV = 0.230: Connected to 230 V system; kW=100: Max rated power of the HeatPump (a.Power/1000 [kW] - read from ESDL); PF=1.0 (phase angle = kW/(sqrt(kW^2+kvar^2))): Assume it's a completely resistive load
-            # Vmaxpu=1.5 Vminpu=0.6: Voltage limits at the node
-            #     command = 'New  Load.{name}	Bus1={bus}.{phase} Phases=1 Conn=wye Model=1 kV=0.230 kW=100 PF=1.0 Vmaxpu=1.5 Vminpu=0.60'.format(
-            #         name=a.name, phase=phase, bus=bus)
-            #     self.command_DSS(command)
-
         # Create the EV objects
         if isinstance(a, esdl.EVChargingStation):
             for port in a.port:
@@ -169,7 +150,7 @@ class DSS:
             self.command_DSS(command)
 
         # Create the PVUser objects
-        if isinstance(a, esdl.PVPark):
+        if isinstance(a, esdl.PVInstallation):
             for port in a.port:
                 if isinstance(port, esdl.OutPort):
                     busUser = port.connectedTo[0].energyasset
@@ -565,6 +546,7 @@ class DSS:
     def end_simulation(self):
         for points in self.dataset:
             self.influx_client.write_points(points)
+
         self.dsoAgent.end_simulation()
 
     # ------------------------------------------------------

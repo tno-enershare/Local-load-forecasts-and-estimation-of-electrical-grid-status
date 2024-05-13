@@ -1,36 +1,24 @@
-from datetime import datetime
-import json
+import os
 import threading
 import pandas as pd
 
-from NATSClient.nats_publisher import NATSPublisherClient
 
 VOLTAGE_THRESHOLD_MIN = 0.9
 VOLTAGE_THRESHOLD_MAX = 1.1
-# AGGREGATOR_CONTROL_SUBJECT = 'aggregator.control'
-# NATS_HOST = 'localhost'
-# NATS_PORT = 4222
-# OVERLOAD_THRESHOLD = 1.0
-OVERLOAD_THRESHOLD = 0.07
-# RATED_CAPACITY_TRANSFORMER = 15.0
-# TODO:Selma-> For testing purposes only
-RATED_CAPACITY_TRANSFORMER = 1.0
+OVERLOAD_THRESHOLD = 1.0
+RATED_CAPACITY_TRANSFORMER = 250.0
 
 
 class DSOAgent:
     def __init__(self):
         self.dfs = {}
-        # self.np = NATSPublisherClient(NATS_HOST, NATS_PORT)
         self.lock = threading.Lock()
 
         # Dataframe to write the results to CSV
         self.transformer_loads = pd.DataFrame()
-        # self.transformer_loads["timestamp"] = pd.Series()
-        # self.transformer_loads["transformer_load"] = pd.Series()
-        # self.transformer_loads["transformer_overloaded"] = pd.Series()
-        # self.transformer_loads["overload_threshold"] = pd.Series()
         self.timestamp = []
-        self.transformer_load = []
+        self.transformer_total_load = []
+        self.transformer_load_over_capacity = []
         self.transformer_overloaded = []
         self.overload_threshold = []
 
@@ -73,27 +61,6 @@ class DSOAgent:
                 {'kW_output': kw_output})
         print('DSO: Done processing DFs')
 
-    def calculate_OLD(self, timestamp):
-        # ov = False
-        # uv = False
-        # t = pd.Timestamp(timestamp)
-
-        message = {}
-        for user_id, df in self.dfs.items():
-            message[user_id] = "Normal"
-        #     if df['voltage'][t] < VOLTAGE_THRESHOLD_MIN:
-        #         uv = True
-        #         message[user_id] = 'Undervoltage'
-        #     elif df['voltage'][t] > VOLTAGE_THRESHOLD_MAX:
-        #         ov = True
-        #         message[user_id] = 'Overvoltage'
-        #
-        # print('Overvoltage exists: {}'.format(ov))
-        # print('Undervoltage exists: {}'.format(uv))
-        # self.np.publish(AGGREGATOR_CONTROL_SUBJECT, json.dumps(message).encode('utf-8'))
-        # print('Publishing to aggregator...')
-        self.dfs = {}
-
     def calculate(self, timestamp):
         t = pd.Timestamp(timestamp)
 
@@ -103,14 +70,18 @@ class DSOAgent:
 
         for user_id, df in self.dfs.items():
             message[user_id] = False
-            transformer_load = abs(df['kW_output'][t]) / RATED_CAPACITY_TRANSFORMER
+            transformer_total_load = abs(df['kW_output'][t])
+            transformer_load_over_capacity = abs(df['kW_output'][t]) / RATED_CAPACITY_TRANSFORMER
+
+            # TODO: Write  abs(df['kW_output'][t]) to CSV, that is the aggregate load of the network
             # if (abs(df['kW_output'][t]) / RATED_CAPACITY_TRANSFORMER) > OVERLOAD_THRESHOLD:
-            if transformer_load > OVERLOAD_THRESHOLD:
+            if transformer_load_over_capacity > OVERLOAD_THRESHOLD:
                 message[user_id] = True
                 transformer_overloaded = True
 
             self.timestamp.append(str(t))
-            self.transformer_load.append(str(transformer_load))
+            self.transformer_total_load.append(str(transformer_total_load))
+            self.transformer_load_over_capacity.append(str(transformer_load_over_capacity))
             self.transformer_overloaded.append(str(transformer_overloaded))
             self.overload_threshold.append(str(OVERLOAD_THRESHOLD))
 
@@ -125,19 +96,14 @@ class DSOAgent:
         print('DSO: End of Simulation. Writing CSVs')
 
         self.transformer_loads["timestamp"] = self.timestamp
-        self.transformer_loads["transformer_load"] = self.transformer_load
+        self.transformer_loads["transformer_total_load"] = self.transformer_total_load
+        self.transformer_loads["transformer_load_over_capacity"] = self.transformer_load_over_capacity
         self.transformer_loads["transformer_overloaded"] = self.transformer_overloaded
         self.transformer_loads["overload_threshold"] = self.overload_threshold
 
-        filename = 'transformer_overloads.csv'
+        filename = 'transformer_overloads_slo.csv'
         self.transformer_loads.to_csv(filename,
                                       index=False,
                                       sep=';')
-        # if self.load_dfs:
-        #     for id, df in self.load_dfs.items():
-        #         df.to_csv(r'C:\Users\subramaniana\Projects\SEM\opendss-module\tmp\csv\load\{}.csv'.format(id), index=True)
-        # if self.gen_dfs:
-        #     for id, df in self.gen_dfs.items():
-        #         df.to_csv(r'C:\Users\subramaniana\Projects\SEM\opendss-module\tmp\csv\gen\{}.csv'.format(id), index=True)
-
         print('DSO: Done!')
+        return self.transformer_loads

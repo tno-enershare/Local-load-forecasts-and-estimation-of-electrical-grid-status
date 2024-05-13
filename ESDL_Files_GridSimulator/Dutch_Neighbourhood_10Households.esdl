@@ -31,7 +31,7 @@
       <asset xsi:type="esdl:Bus" id="Bus1301" name="Bus1301">
         <geometry xsi:type="esdl:Point" CRS="WGS84" lat="52.04269222" lon="6.6061298420000005"/>
         <port xsi:type="esdl:InPort" name="Bus1301Phase1In" id="Bus1301Phase1In" connectedTo="line16Phase1Out" carrier="Electricity"/>
-        <port xsi:type="esdl:OutPort" name="Bus1301Phase2Out" id="Bus1301Phase2Out" connectedTo="EconnInuser4Phase2In" carrier="Electricity"/>
+        <port xsi:type="esdl:OutPort" name="Bus1301Phase1Out" id="Bus1301Phase1Out" connectedTo="EconnInuser4Phase1In" carrier="Electricity"/>
       </asset>
       <asset xsi:type="esdl:ElectricityCable" id="line21" assetType="gplkh_4_50_cusvm_4_6" name="line21" length="4.0">
         <port xsi:type="esdl:InPort" name="line21Phase1In" id="line21Phase1In" connectedTo="Bus1Phase1Out" carrier="Electricity"/>
@@ -70,7 +70,7 @@
       <asset xsi:type="esdl:Bus" id="Bus2001" name="Bus2001">
         <geometry xsi:type="esdl:Point" CRS="WGS84" lat="52.04257362" lon="6.606014507000001"/>
         <port xsi:type="esdl:InPort" name="Bus2001Phase1In" id="Bus2001Phase1In" connectedTo="line29Phase1Out" carrier="Electricity"/>
-        <port xsi:type="esdl:OutPort" name="Bus2001Phase3Out" id="Bus2001Phase3Out" connectedTo="EConnInuser10Phase3Inuser10Phase3In" carrier="Electricity"/>
+        <port xsi:type="esdl:OutPort" name="Bus2001Phase1Out" id="Bus2001Phase1Out" connectedTo="EConnInuser10Phase1Inuser10Phase1In" carrier="Electricity"/>
       </asset>
       <asset xsi:type="esdl:ElectricityCable" id="line30" assetType="gplkh_4_50_cusvm_4_6" name="line30" length="4.0">
         <port xsi:type="esdl:InPort" name="line30Phase1In" id="line30Phase1In" connectedTo="Bus13Phase1Out" carrier="Electricity"/>
@@ -96,7 +96,7 @@
       <asset xsi:type="esdl:Bus" id="Bus2101" name="Bus2101">
         <geometry xsi:type="esdl:Point" CRS="WGS84" lat="52.04269222" lon="6.606226401000001"/>
         <port xsi:type="esdl:InPort" name="Bus2101Phase1In" id="Bus2101Phase1In" connectedTo="line31Phase1Out" carrier="Electricity"/>
-        <port xsi:type="esdl:OutPort" name="Bus2101Phase2Out" id="Bus2101Phase2Out" connectedTo="EConnInuser11Phase2Inuser11Phase2In" carrier="Electricity"/>
+        <port xsi:type="esdl:OutPort" name="Bus2101Phase1Out" id="Bus2101Phase1Out" connectedTo="EConnInuser11Phase1Inuser11Phase1In" carrier="Electricity"/>
       </asset>
       <asset xsi:type="esdl:ElectricityCable" id="line44" assetType="gplkh_4_50_cusvm_4_6" name="line44" length="1.0">
         <port xsi:type="esdl:InPort" name="line44Phase1In" id="line44Phase1In" connectedTo="Bus20Phase1Out" carrier="Electricity"/>
@@ -122,7 +122,7 @@
       <asset xsi:type="esdl:Bus" id="Bus2801" name="Bus2801">
         <geometry xsi:type="esdl:Point" CRS="WGS84" lat="52.04250105" lon="6.605976956"/>
         <port xsi:type="esdl:InPort" name="Bus2801Phase1In" id="Bus2801Phase1In" connectedTo="line45Phase1Out" carrier="Electricity"/>
-        <port xsi:type="esdl:OutPort" name="Bus2801Phase3Out" id="Bus2801Phase3Out" connectedTo="EConnInuser18Phase3Inuser18Phase3In" carrier="Electricity"/>
+        <port xsi:type="esdl:OutPort" name="Bus2801Phase1Out" id="Bus2801Phase1Out" connectedTo="EConnInuser18Phase1Inuser18Phase1In" carrier="Electricity"/>
       </asset>
       <asset xsi:type="esdl:ElectricityCable" id="line102" assetType="gplkh_4_50_cusvm_4_6" name="line102" length="3.0">
         <port xsi:type="esdl:InPort" name="line102Phase1In" id="line102Phase1In" connectedTo="Bus28Phase1Out" carrier="Electricity"/>
@@ -148,7 +148,7 @@
       <asset xsi:type="esdl:Bus" id="Bus5701" name="Bus5701">
         <geometry xsi:type="esdl:Point" CRS="WGS84" lat="52.042411990000005" lon="6.605960863"/>
         <port xsi:type="esdl:InPort" name="Bus5701Phase1In" id="Bus5701Phase1In" connectedTo="line103Phase1Out" carrier="Electricity"/>
-        <port xsi:type="esdl:OutPort" name="Bus5701Phase2Out" id="Bus5701Phase2Out" connectedTo="EConnInuser47Phase2Inuser47Phase2In" carrier="Electricity"/>
+        <port xsi:type="esdl:OutPort" name="Bus5701Phase1Out" id="Bus5701Phase1Out" connectedTo="EConnInuser47Phase1Inuser47Phase1In" carrier="Electricity"/>
       </asset>
       <asset xsi:type="esdl:ElectricityCable" id="line128" assetType="gplkh_4_50_cusvm_4_6" name="line128" length="3.0">
         <port xsi:type="esdl:InPort" name="line128Phase1In" id="line128Phase1In" connectedTo="Bus57Phase1Out" carrier="Electricity"/>
@@ -174,7 +174,7 @@
       <asset xsi:type="esdl:Bus" id="Bus7001" name="Bus7001">
         <geometry xsi:type="esdl:Point" CRS="WGS84" lat="52.04233282" lon="6.605923312000001"/>
         <port xsi:type="esdl:InPort" name="Bus7001Phase1In" id="Bus7001Phase1In" connectedTo="line129Phase1Out" carrier="Electricity"/>
-        <port xsi:type="esdl:OutPort" name="Bus7001Phase3Out" id="Bus7001Phase3Out" connectedTo="EConnInuser60Phase3Inuser60Phase3In" carrier="Electricity"/>
+        <port xsi:type="esdl:OutPort" name="Bus7001Phase1Out" id="Bus7001Phase1Out" connectedTo="EConnInuser60Phase1Inuser60Phase1In" carrier="Electricity"/>
       </asset>
       <asset xsi:type="esdl:ElectricityCable" id="line140" assetType="gplkh_4_50_cusvm_4_6" name="line140" length="4.0">
         <port xsi:type="esdl:InPort" name="line140Phase1In" id="line140Phase1In" connectedTo="Bus70Phase1Out" carrier="Electricity"/>
@@ -252,7 +252,7 @@
       <asset xsi:type="esdl:Bus" id="Bus9001" name="Bus9001">
         <geometry xsi:type="esdl:Point" CRS="WGS84" lat="52.04210191" lon="6.605834799"/>
         <port xsi:type="esdl:InPort" name="Bus9001Phase1In" id="Bus9001Phase1In" connectedTo="line169Phase1Out" carrier="Electricity"/>
-        <port xsi:type="esdl:OutPort" name="Bus9001Phase2Out" id="Bus9001Phase2Out" connectedTo="EConnInuser80Phase2Inuser80Phase2In" carrier="Electricity"/>
+        <port xsi:type="esdl:OutPort" name="Bus9001Phase1Out" id="Bus9001Phase1Out" connectedTo="EConnInuser80Phase1Inuser80Phase1In" carrier="Electricity"/>
       </asset>
       <asset xsi:type="esdl:ElectricityCable" id="line180" assetType="gplkh_4_50_cusvm_4_6" name="line180" length="14.0">
         <port xsi:type="esdl:InPort" name="line180Phase1In" id="line180Phase1In" connectedTo="Bus90Phase1Out" carrier="Electricity"/>
@@ -300,12 +300,12 @@
       <asset xsi:type="esdl:Building" id="Building_4" name="Building_4">
         <asset xsi:type="esdl:EConnection" id="user4" name="Bus1301">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="166.66666666666666" lon="125.0"/>
-          <port xsi:type="esdl:InPort" name="Inuser4Phase2In" id="EconnInuser4Phase2In" connectedTo="Bus1301Phase2Out" carrier="Electricity"/>
-          <port xsi:type="esdl:OutPort" name="Outuser4Phase2In" id="EconnOutuser4Phase2In" connectedTo="EDemandInuser4Phase2In" carrier="Electricity"/>
+          <port xsi:type="esdl:InPort" name="Inuser4Phase1In" id="EconnInuser4Phase1In" connectedTo="Bus1301Phase1Out" carrier="Electricity"/>
+          <port xsi:type="esdl:OutPort" name="Outuser4Phase1In" id="EconnOutuser4Phase1In" connectedTo="EDemandInuser4Phase1In" carrier="Electricity"/>
         </asset>
         <asset xsi:type="esdl:ElectricityDemand" id="user4EDemand" name="user4EDemand">
           <geometry xsi:type="esdl:Point" lat="164.0" lon="304.0"/>
-          <port xsi:type="esdl:InPort" name="Inuser4Phase2In" id="EDemandInuser4Phase2In" connectedTo="EconnOutuser4Phase2In" carrier="Electricity">
+          <port xsi:type="esdl:InPort" name="Inuser4Phase1In" id="EDemandInuser4Phase1In" connectedTo="EconnOutuser4Phase1In" carrier="Electricity">
             <profile xsi:type="esdl:InfluxDBProfile" database="SEMData" multiplier="1.5" filters="" profileType="ENERGY_IN_J" id="EDemand_user4" port="8086" measurement="elec_profiles" host="http://10.30.2.1" field="User_4"/>
           </port>
         </asset>
@@ -314,12 +314,12 @@
       <asset xsi:type="esdl:Building" id="Building_10" name="Building_10">
         <asset xsi:type="esdl:EConnection" id="user10" name="Bus2001">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="166.66666666666666"/>
-          <port xsi:type="esdl:InPort" name="Inuser10Phase3Inuser10Phase3In" id="EConnInuser10Phase3Inuser10Phase3In" connectedTo="Bus2001Phase3Out" carrier="Electricity"/>
-          <port xsi:type="esdl:OutPort" name="EConnOutuser10Phase3In" id="EConnOutuser10Phase3In" connectedTo="EDemandInuser10Phase3In" carrier="Electricity"/>
+          <port xsi:type="esdl:InPort" name="Inuser10Phase1Inuser10Phase1In" id="EConnInuser10Phase1Inuser10Phase1In" connectedTo="Bus2001Phase1Out" carrier="Electricity"/>
+          <port xsi:type="esdl:OutPort" name="EConnOutuser10Phase1In" id="EConnOutuser10Phase1In" connectedTo="EDemandInuser10Phase1In" carrier="Electricity"/>
         </asset>
         <asset xsi:type="esdl:ElectricityDemand" id="user10EDemand" name="user10EDemand">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="333.3333333333333"/>
-          <port xsi:type="esdl:InPort" name="EDemandInuser10Phase3In" id="EDemandInuser10Phase3In" connectedTo="EConnOutuser10Phase3In" carrier="Electricity">
+          <port xsi:type="esdl:InPort" name="EDemandInuser10Phase1In" id="EDemandInuser10Phase1In" connectedTo="EConnOutuser10Phase1In" carrier="Electricity">
             <profile xsi:type="esdl:InfluxDBProfile" database="SEMData" multiplier="1.5" filters="" profileType="ENERGY_IN_J" id="EDemand_user10" port="8086" measurement="elec_profiles" host="http://10.30.2.1" field="User_10"/>
           </port>
         </asset>
@@ -328,12 +328,12 @@
       <asset xsi:type="esdl:Building" id="Building_11" name="Building_11">
         <asset xsi:type="esdl:EConnection" id="user11" name="Bus2101">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="166.66666666666666"/>
-          <port xsi:type="esdl:InPort" name="Inuser11Phase2Inuser11Phase2In" id="EConnInuser11Phase2Inuser11Phase2In" connectedTo="Bus2101Phase2Out" carrier="Electricity"/>
-          <port xsi:type="esdl:OutPort" name="EConnOutuser11Phase2In" id="EConnOutuser11Phase2In" connectedTo="EDemandInuser11Phase2In" carrier="Electricity"/>
+          <port xsi:type="esdl:InPort" name="Inuser11Phase1Inuser11Phase1In" id="EConnInuser11Phase1Inuser11Phase1In" connectedTo="Bus2101Phase1Out" carrier="Electricity"/>
+          <port xsi:type="esdl:OutPort" name="EConnOutuser11Phase1In" id="EConnOutuser11Phase1In" connectedTo="EDemandInuser11Phase1In" carrier="Electricity"/>
         </asset>
         <asset xsi:type="esdl:ElectricityDemand" id="user11EDemand" name="user11EDemand">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="333.3333333333333"/>
-          <port xsi:type="esdl:InPort" name="EDemandInuser11Phase2In" id="EDemandInuser11Phase2In" connectedTo="EConnOutuser11Phase2In" carrier="Electricity">
+          <port xsi:type="esdl:InPort" name="EDemandInuser11Phase1In" id="EDemandInuser11Phase1In" connectedTo="EConnOutuser11Phase1In" carrier="Electricity">
             <profile xsi:type="esdl:InfluxDBProfile" database="SEMData" multiplier="1.5" filters="" profileType="ENERGY_IN_J" id="EDemand_user11" port="8086" measurement="elec_profiles" host="http://10.30.2.1" field="User_11"/>
           </port>
         </asset>
@@ -342,12 +342,12 @@
       <asset xsi:type="esdl:Building" id="Building_18" name="Building_18">
         <asset xsi:type="esdl:EConnection" id="user18" name="Bus2801">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="166.66666666666666"/>
-          <port xsi:type="esdl:InPort" name="Inuser18Phase3Inuser18Phase3In" id="EConnInuser18Phase3Inuser18Phase3In" connectedTo="Bus2801Phase3Out" carrier="Electricity"/>
-          <port xsi:type="esdl:OutPort" name="EConnOutuser18Phase3In" id="EConnOutuser18Phase3In" connectedTo="EDemandInuser18Phase3In" carrier="Electricity"/>
+          <port xsi:type="esdl:InPort" name="Inuser18Phase1Inuser18Phase1In" id="EConnInuser18Phase1Inuser18Phase1In" connectedTo="Bus2801Phase1Out" carrier="Electricity"/>
+          <port xsi:type="esdl:OutPort" name="EConnOutuser18Phase1In" id="EConnOutuser18Phase1In" connectedTo="EDemandInuser18Phase1In" carrier="Electricity"/>
         </asset>
         <asset xsi:type="esdl:ElectricityDemand" id="user18EDemand" name="user18EDemand">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="333.3333333333333"/>
-          <port xsi:type="esdl:InPort" name="EDemandInuser18Phase3In" id="EDemandInuser18Phase3In" connectedTo="EConnOutuser18Phase3In" carrier="Electricity">
+          <port xsi:type="esdl:InPort" name="EDemandInuser18Phase1In" id="EDemandInuser18Phase1In" connectedTo="EConnOutuser18Phase1In" carrier="Electricity">
             <profile xsi:type="esdl:InfluxDBProfile" database="SEMData" multiplier="1.5" filters="" profileType="ENERGY_IN_J" id="EDemand_user18" port="8086" measurement="elec_profiles" host="http://10.30.2.1" field="User_18"/>
           </port>
         </asset>
@@ -356,12 +356,12 @@
       <asset xsi:type="esdl:Building" id="Building_47" name="Building_47">
         <asset xsi:type="esdl:EConnection" id="user47" name="Bus5701">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="166.66666666666666"/>
-          <port xsi:type="esdl:InPort" name="Inuser47Phase2Inuser47Phase2In" id="EConnInuser47Phase2Inuser47Phase2In" connectedTo="Bus5701Phase2Out" carrier="Electricity"/>
-          <port xsi:type="esdl:OutPort" name="EConnOutuser47Phase2In" id="EConnOutuser47Phase2In" connectedTo="EDemandInuser47Phase2In" carrier="Electricity"/>
+          <port xsi:type="esdl:InPort" name="Inuser47Phase1Inuser47Phase1In" id="EConnInuser47Phase1Inuser47Phase1In" connectedTo="Bus5701Phase1Out" carrier="Electricity"/>
+          <port xsi:type="esdl:OutPort" name="EConnOutuser47Phase1In" id="EConnOutuser47Phase1In" connectedTo="EDemandInuser47Phase1In" carrier="Electricity"/>
         </asset>
         <asset xsi:type="esdl:ElectricityDemand" id="user47EDemand" name="user47EDemand">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="333.3333333333333"/>
-          <port xsi:type="esdl:InPort" name="EDemandInuser47Phase2In" id="EDemandInuser47Phase2In" connectedTo="EConnOutuser47Phase2In" carrier="Electricity">
+          <port xsi:type="esdl:InPort" name="EDemandInuser47Phase1In" id="EDemandInuser47Phase1In" connectedTo="EConnOutuser47Phase1In" carrier="Electricity">
             <profile xsi:type="esdl:InfluxDBProfile" database="SEMData" multiplier="1.5" filters="" profileType="ENERGY_IN_J" id="EDemand_user47" port="8086" measurement="elec_profiles" host="http://10.30.2.1" field="User_47"/>
           </port>
         </asset>
@@ -370,12 +370,12 @@
       <asset xsi:type="esdl:Building" id="Building_60" name="Building_60">
         <asset xsi:type="esdl:EConnection" id="user60" name="Bus7001">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="166.66666666666666"/>
-          <port xsi:type="esdl:InPort" name="Inuser60Phase3Inuser60Phase3In" id="EConnInuser60Phase3Inuser60Phase3In" connectedTo="Bus7001Phase3Out" carrier="Electricity"/>
-          <port xsi:type="esdl:OutPort" name="EConnOutuser60Phase3In" id="EConnOutuser60Phase3In" connectedTo="EDemandInuser60Phase3In" carrier="Electricity"/>
+          <port xsi:type="esdl:InPort" name="Inuser60Phase1Inuser60Phase1In" id="EConnInuser60Phase1Inuser60Phase1In" connectedTo="Bus7001Phase1Out" carrier="Electricity"/>
+          <port xsi:type="esdl:OutPort" name="EConnOutuser60Phase1In" id="EConnOutuser60Phase1In" connectedTo="EDemandInuser60Phase1In" carrier="Electricity"/>
         </asset>
         <asset xsi:type="esdl:ElectricityDemand" id="user60EDemand" name="user60EDemand">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="333.3333333333333"/>
-          <port xsi:type="esdl:InPort" name="EDemandInuser60Phase3In" id="EDemandInuser60Phase3In" connectedTo="EConnOutuser60Phase3In" carrier="Electricity">
+          <port xsi:type="esdl:InPort" name="EDemandInuser60Phase1In" id="EDemandInuser60Phase1In" connectedTo="EConnOutuser60Phase1In" carrier="Electricity">
             <profile xsi:type="esdl:InfluxDBProfile" database="SEMData" multiplier="1.5" filters="" profileType="ENERGY_IN_J" id="EDemand_user60" port="8086" measurement="elec_profiles" host="http://10.30.2.1" field="User_60"/>
           </port>
         </asset>
@@ -412,12 +412,12 @@
       <asset xsi:type="esdl:Building" id="Building_80" name="Building_80">
         <asset xsi:type="esdl:EConnection" id="user80" name="Bus9001">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="166.66666666666666"/>
-          <port xsi:type="esdl:InPort" name="Inuser80Phase2Inuser80Phase2In" id="EConnInuser80Phase2Inuser80Phase2In" connectedTo="Bus9001Phase2Out" carrier="Electricity"/>
-          <port xsi:type="esdl:OutPort" name="EConnOutuser80Phase2In" id="EConnOutuser80Phase2In" connectedTo="EDemandInuser80Phase2In" carrier="Electricity"/>
+          <port xsi:type="esdl:InPort" name="Inuser80Phase1Inuser80Phase1In" id="EConnInuser80Phase1Inuser80Phase1In" connectedTo="Bus9001Phase1Out" carrier="Electricity"/>
+          <port xsi:type="esdl:OutPort" name="EConnOutuser80Phase1In" id="EConnOutuser80Phase1In" connectedTo="EDemandInuser80Phase1In" carrier="Electricity"/>
         </asset>
         <asset xsi:type="esdl:ElectricityDemand" id="user80EDemand" name="user80EDemand">
           <geometry xsi:type="esdl:Point" CRS="Simple" lat="250.0" lon="333.3333333333333"/>
-          <port xsi:type="esdl:InPort" name="EDemandInuser80Phase2In" id="EDemandInuser80Phase2In" connectedTo="EConnOutuser80Phase2In" carrier="Electricity">
+          <port xsi:type="esdl:InPort" name="EDemandInuser80Phase1In" id="EDemandInuser80Phase1In" connectedTo="EConnOutuser80Phase1In" carrier="Electricity">
             <profile xsi:type="esdl:InfluxDBProfile" database="SEMData" multiplier="1.5" filters="" profileType="ENERGY_IN_J" id="EDemand_user80" port="8086" measurement="elec_profiles" host="http://10.30.2.1" field="User_80"/>
           </port>
         </asset>
