@@ -2,15 +2,10 @@ import os
 import threading
 import pandas as pd
 
-
-VOLTAGE_THRESHOLD_MIN = 0.9
-VOLTAGE_THRESHOLD_MAX = 1.1
-OVERLOAD_THRESHOLD = 1.0
-RATED_CAPACITY_TRANSFORMER = 250.0
-
+from BD4NRG_Grid_Simulator.Pilot import Pilot
 
 class DSOAgent:
-    def __init__(self):
+    def __init__(self, pilot_name):
         self.dfs = {}
         self.lock = threading.Lock()
 
@@ -21,6 +16,7 @@ class DSOAgent:
         self.transformer_load_over_capacity = []
         self.transformer_overloaded = []
         self.overload_threshold = []
+        self.pilot_name = pilot_name
 
     def process_command(self, command):
         self.process_message(command)
@@ -68,6 +64,19 @@ class DSOAgent:
 
         transformer_overloaded = False
 
+        OVERLOAD_THRESHOLD = 0.0
+        RATED_CAPACITY_TRANSFORMER = 0.0
+
+        if self.pilot_name == Pilot.Italy:
+            OVERLOAD_THRESHOLD = 1.0
+            RATED_CAPACITY_TRANSFORMER = 160.0
+        elif self.pilot_name == Pilot.Slovenia:
+            OVERLOAD_THRESHOLD = 1.0
+            RATED_CAPACITY_TRANSFORMER = 250.0
+        else:
+            print('Incorrect pilot name.')
+
+
         for user_id, df in self.dfs.items():
             message[user_id] = False
             transformer_total_load = abs(df['kW_output'][t])
@@ -101,7 +110,17 @@ class DSOAgent:
         self.transformer_loads["transformer_overloaded"] = self.transformer_overloaded
         self.transformer_loads["overload_threshold"] = self.overload_threshold
 
-        filename = 'transformer_overloads_slo.csv'
+        filename = ''
+
+        if self.pilot_name == Pilot.Italy:
+            filename = 'transformer_overloads_italy.csv'
+        elif self.pilot_name == Pilot.Slovenia:
+            filename = 'transformer_overloads_slovenia.csv'
+        else:
+            print('Incorrect pilot name.')
+
+
+
         self.transformer_loads.to_csv(filename,
                                       index=False,
                                       sep=';')

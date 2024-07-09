@@ -5,15 +5,22 @@ import numpy as np
 from datetime import datetime as dt
 from datetime import timedelta as td
 from urllib.parse import quote, unquote
+
+from BD4NRG_Grid_Simulator.Pilot import Pilot
 from OpenDSS.ESDL_opendss_bd4nrg_module import DSS
 
 
 class GridSimulator:
 
-    def __init__(self, esdl_file, load_forecasts, pv_forecasts):
+    def __init__(self, esdl_file, load_forecasts, pv_forecasts, pilot_name):
         self.tmp_path = esdl_file
         self.fl_consumer_loads = self.read_fl_load_forecasts(load_forecasts)
-        self.pv_generation = self.read_pv_gens(pv_forecasts)
+
+        self.pv_generation = None
+
+        if pv_forecasts != "":
+            self.pv_generation = self.read_pv_gens(pv_forecasts)
+        self.pilot_name = pilot_name
 
     def simulate(self):
         print('Initializing grid simulation parameters...')
@@ -22,23 +29,33 @@ class GridSimulator:
         self.init_influxdb()
 
     def init_simulation(self):
-        # main_resource_filename = 'Dutch_Neighbourhood_10Households_1PV.esdl'
 
-        main_resource_filename = 'Slovenian_Pilot_2024_v1.esdl'
+        main_resource_filename = ""
+        main_resource_filepath = ""
 
-        with(open('../ESDL_Files_GridSimulator/Pilots_2024/Slovenian_Pilot_2024_v1.esdl', 'r')) as f:
+        if self.pilot_name == Pilot.Italy:
+            main_resource_filename = 'Italian_Pilot_2024_v1.esdl'
+            main_resource_filepath = '../ESDL_Files_GridSimulator/Pilots_2024/Italian_Pilot_2024_v1.esdl'
+        elif self.pilot_name == Pilot.Slovenia:
+            main_resource_filename = 'Slovenian_Pilot_2024_v1.esdl'
+            main_resource_filepath = '../ESDL_Files_GridSimulator/Pilots_2024/Slovenian_Pilot_2024_v1.esdl'
+        else:
+            print('Incorrect pilot name.')
+
+        with(open(main_resource_filepath, 'r')) as f:
             main_resource_contents = quote(f.read())
 
         main_resource_file_name = self.tmp_path + main_resource_filename
 
         print(f'Writing to {main_resource_file_name}')
+
         if os.path.exists(main_resource_file_name):
             os.remove(main_resource_file_name)
         with open(main_resource_file_name, 'w+') as f:
             f.write(unquote(main_resource_contents).replace("+", " "))
 
         main_resource_file_name_absolute_path = os.path.abspath(main_resource_file_name)
-        self.dss = DSS(path_esdl=main_resource_file_name_absolute_path)
+        self.dss = DSS(path_esdl=main_resource_file_name_absolute_path, pilot_name=self.pilot_name)
         # Initialise Simulation with times
         self.dss.init_simulation()
 
@@ -46,8 +63,14 @@ class GridSimulator:
         host = 'localhost'
         port = 8086
         database_name = 'opendss_db'
-        # measurement_name = 'dutch_sim_run_10_02_2020_1'
-        measurement_name = 'slovenian_sim_run_01012021'
+        measurement_name = ""
+
+        if self.pilot_name == Pilot.Italy:
+            measurement_name = 'italian_sim_run_30062022'
+        elif self.pilot_name == Pilot.Slovenia:
+            measurement_name = 'slovenian_sim_run_01012021'
+        else:
+            print('Incorrect pilot name.')
 
         if self.dss is None:
             print('Cannot process init_influxdb now as DSS is not initialised!')
@@ -55,7 +78,14 @@ class GridSimulator:
             self.dss.init_influxdb(host, port, database_name, measurement_name)
 
     def start_simulation(self):
-        sim_start = dt.strptime('Jan 1 2021  12:15AM', '%b %d %Y %I:%M%p').timestamp()
+        sim_start = ""
+
+        if self.pilot_name == Pilot.Italy:
+            sim_start = dt.strptime('Jun 30 2022  12:15AM', '%b %d %Y %I:%M%p').timestamp()
+        elif self.pilot_name == Pilot.Slovenia:
+            sim_start = dt.strptime('Jan 1 2021  12:15AM', '%b %d %Y %I:%M%p').timestamp()
+        else:
+            print('Incorrect pilot name.')
 
         sim_end = sim_start + td(days=1).total_seconds()
         time_step = td(minutes=15).total_seconds()
@@ -65,7 +95,10 @@ class GridSimulator:
         while time_stamp < sim_end:
             # Update the kW of Consumers
             self.set_kw_load(counter)
-            self.set_kw_gen(counter)
+
+            if self.pv_generation is not None:
+                self.set_kw_gen(counter)
+
             # self.set_kvar_load(counter)
 
             counter = counter + 1

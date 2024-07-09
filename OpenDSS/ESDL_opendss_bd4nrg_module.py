@@ -26,11 +26,11 @@ def make_last(datapoints):
 
 
 class DSS:
-    def __init__(self, path_main_dss=None, path_esdl=None):
+    def __init__(self, path_main_dss=None, path_esdl=None, pilot_name=None):
         # Create the connection between Python and OpenDSS
         self.dssObj = win32com.client.Dispatch("OpenDSSEngine.DSS")
 
-        self.dsoAgent = DSOAgent()
+        self.dsoAgent = DSOAgent(pilot_name)
 
         # Create an DSS circuit
         if not self.dssObj.Start(0):
