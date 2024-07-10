@@ -119,8 +119,6 @@ class DSOAgent:
         else:
             print('Incorrect pilot name.')
 
-
-
         self.transformer_loads.to_csv(filename,
                                       index=False,
                                       sep=';')
