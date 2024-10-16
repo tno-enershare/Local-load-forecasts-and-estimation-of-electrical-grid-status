@@ -7,7 +7,7 @@ from datetime import timedelta as td
 from urllib.parse import quote, unquote
 
 from EnerShare_Grid_Simulator.Pilot import Pilot
-from OpenDSS.ESDL_opendss_bd4nrg_module import DSS
+from OpenDSS.ESDL_opendss_EnerShare_module import DSS
 
 
 class GridSimulator:
