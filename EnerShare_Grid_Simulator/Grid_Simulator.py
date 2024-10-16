@@ -6,7 +6,7 @@ from datetime import datetime as dt
 from datetime import timedelta as td
 from urllib.parse import quote, unquote
 
-from BD4NRG_Grid_Simulator.Pilot import Pilot
+from EnerShare_Grid_Simulator.Pilot import Pilot
 from OpenDSS.ESDL_opendss_bd4nrg_module import DSS
 
 
