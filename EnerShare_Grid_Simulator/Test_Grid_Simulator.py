@@ -1,9 +1,9 @@
 import os
 
-from BD4NRG_Grid_Simulator.Grid_Simulator import GridSimulator
+from EnerShare_Grid_Simulator.Grid_Simulator import GridSimulator
 import time
 
-from BD4NRG_Grid_Simulator.Pilot import Pilot
+from EnerShare_Grid_Simulator.Pilot import Pilot
 
 if __name__ == '__main__':
 
