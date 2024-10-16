@@ -2,7 +2,7 @@ import os
 import threading
 import pandas as pd
 
-from BD4NRG_Grid_Simulator.Pilot import Pilot
+from EnerShare_Grid_Simulator.Pilot import Pilot
 
 class DSOAgent:
     def __init__(self, pilot_name):
