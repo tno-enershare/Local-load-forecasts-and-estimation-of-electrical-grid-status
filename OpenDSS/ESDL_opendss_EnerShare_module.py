@@ -6,7 +6,7 @@ from copy import deepcopy
 import win32com.client  # importing Wincom client to call OpenDSS
 from influxdb import InfluxDBClient  # Calling the InflixDB Client
 
-from DSO.BD4NRG_DSO_Agent import DSOAgent
+from DSO.EnerShare_DSO_Agent import DSOAgent
 import esdl
 
 from ESDL.EcoreResource import EcoreResource
